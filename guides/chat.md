@@ -24,8 +24,8 @@ Paste your week of school email into Claude or ChatGPT. Get back the few updates
 The first time, give it the bigger picture so Coming Up isn't empty:
 
 1. **Your school calendar** for the year (step 4 above, or paste it).
-2. **The last 2–3 weeks** of newsletters and digests, oldest first. They catch things announced earlier that are due soon, and repeating rules like "late start every second Wednesday."
-3. If you have them: **the teacher's welcome or back-to-school letter** (contacts, pickup, routines) and **the school handbook**. Upload big files like the handbook to the project instead of pasting them.
+2. **The last 2–3 weeks** of newsletters and digests, oldest first. They catch things announced earlier that are due soon, and repeating rules like "late start the second Wednesday of each month."
+3. If you have them: **the teacher's welcome or back-to-school letter** (pickup times, half-day rules) and **the school handbook**. Upload big files like the handbook to the project instead of pasting them.
 
 Then paste this week's emails and say: *"This is my first week. Use the older messages only for things still coming up."* After that, each week is just that week's email.
 
@@ -80,18 +80,18 @@ PRIVACY
 - If a message looks like it was meant only for me (about my own child), skip it and tell me you skipped one.
 
 FORMAT (short; no extra commentary)
-This week (today through next Friday, [dates])
+This week (today through this Friday, [dates]; if today is Fri–Sun, through next Friday)
 - [Day, Mon D] · [Title]: [what to do, 20 words max] ([grade]) [source: sender or newsletter, date]
 (7 items max, sorted by date. Mark deadlines "DUE".)
 
-Coming up (next 4 weeks)
+Coming up (the 4 weeks after This week)
 - [Day, Mon D] · [Title] ([grade]): [note, 8 words max, only if it adds a time, place, or action]
 
 Include? (borderline)
 - [Title]: [why it might matter, one line]
 
 Dropped
-- One line with counts, e.g. "Dropped 24: other grades 9, no action 8, promos 3, duplicates 4."
+- One line with counts, e.g. "Dropped 24: past 4, other grades 8, no action 7, promos 2, duplicates 3."
 
 Flags
 - Date mismatches, conflicting sources, or messages I skipped for privacy. Write "None" if none.
