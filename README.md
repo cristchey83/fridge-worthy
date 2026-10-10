@@ -21,6 +21,7 @@ Read [SECURITY.md](SECURITY.md) before you build a Page or Autopilot.
 - `guides/`: the three setups, plus an example page data file
 - `site/`: the landing page and the demo (a made-up school)
 - `scripts/check_site.py`: checks the site before deploy
+- `tests/`: checks the docs (links, example data, safety rules)
 - `SECURITY.md`: safety recommendations and FAQ
 
 ## About this repo
@@ -33,4 +34,4 @@ To build your own Page, start a new **private** repo (see [guides/page.md](guide
 
 MIT. See [LICENSE](LICENSE). The fonts in `site/fonts/` (Inter, Caveat, Playfair Display) are under the SIL Open Font License; see the `OFL-*.txt` files there.
 
-To check the site before a deploy: `python3 scripts/check_site.py` (needs Playwright; add `--no-browser` to skip the browser checks).
+Checks (they also run on every push): `python3 -m unittest discover -s tests` for the docs, and `python3 scripts/check_site.py` for the site (needs Playwright; add `--no-browser` to skip the browser checks).

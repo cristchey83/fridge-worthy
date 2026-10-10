@@ -17,7 +17,17 @@ Paste your week of school email into Claude or ChatGPT. Get back the few updates
 1. Create a **Project** (Claude) or a **Project or custom GPT** (ChatGPT). On a free plan without Projects, start a new chat each week and paste the prompt first.
 2. Copy the prompt below into the project's instructions.
 3. Fill in the **About my family** section. Use grades, not your kids' names.
-4. Optional: upload your school's calendar (PDF) to the project so it knows no-school days and late starts.
+4. Upload your school's calendar (PDF) to the project so it knows no-school days and late starts.
+
+## First run
+
+The first time, give it the bigger picture so Coming Up isn't empty:
+
+1. **Your school calendar** for the year (step 4 above, or paste it).
+2. **The last 2–3 weeks** of newsletters and digests, oldest first. They catch things announced earlier that are due soon, and repeating rules like "late start every second Wednesday."
+3. If you have them: **the teacher's welcome or back-to-school letter** (contacts, pickup, routines) and **the school handbook**. Upload big files like the handbook to the project instead of pasting them.
+
+Then paste this week's emails and say: *"This is my first week. Use the older messages only for things still coming up."* After that, each week is just that week's email.
 
 ## Each week
 

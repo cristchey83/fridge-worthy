@@ -250,7 +250,11 @@ npx wrangler pages deploy public --project-name <name> --branch main
 - **Checkpoint:** you log in on your phone.
 
 ### 10. Swap in your real content
-- Set `shared` to `false` for now. Follow the weekly routine below with this week's real emails.
+- Set `shared` to `false` for now.
+- **First run:** give the agent the same starter set as the Chat setup's [First run](chat.md#first-run): the school calendar and the last 2–3 weeks of newsletters and digests, plus the teacher's welcome letter and the school handbook if you have them. These fill Coming Up, Contacts, Links, and Good to know. Newer and more specific wins, as always.
+- Keep these files outside the repo, like any pasted email.
+- Then follow the weekly routine below with this week's real emails.
+- **Checkpoint:** you've checked every Coming Up date against the school calendar.
 
 ## Weekly update
 

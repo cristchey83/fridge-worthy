@@ -13,5 +13,5 @@ This repo is the public Fridge-Worthy guide: three setup guides and a static lan
 - Use only the made-up demo data (Sunridge Elementary, example.org, 555-01xx numbers).
 - `site/` is static: no build step, no third-party requests, strict CSP in `site/_headers`.
 - The Chat prompt lives in two places that must match: `guides/chat.md` and `<template id="chat-prompt">` in `site/index.html`.
-- Run `python3 scripts/check_site.py` before any deploy (`--no-browser` if Playwright isn't installed).
+- Run `python3 -m unittest discover -s tests` and `python3 scripts/check_site.py` before any commit or deploy (`--no-browser` if Playwright isn't installed).
 - This repo doesn't accept contributions; don't open issues or pull requests.
