@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sunridge Elementary">
+<rect width="64" height="64" rx="12" fill="#fff"/>
+<g stroke="#E8962E" stroke-width="3.5" stroke-linecap="round"><path d="M32 6v6M14.6 13.2l4.2 4.2M49.4 13.2l-4.2 4.2M7.4 30.5h6M50.6 30.5h6"/></g>
+<path d="M17 31a15 15 0 0 1 30 0z" fill="#F2B33D"/>
+<path d="M10 33h44" stroke="#1B1B1B" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M14 58V40l18-10 18 10v18z" fill="#2B6FC0"/>
+<path d="M32 30l-20 11" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/>
+<path d="M32 30l20 11" stroke="#1B1B1B" stroke-width="3" stroke-linecap="round"/>
+<rect x="27" y="45" width="10" height="13" rx="1.5" fill="#fff"/>
+<rect x="18" y="44" width="6" height="6" rx="1" fill="#fff"/>
+<rect x="40" y="44" width="6" height="6" rx="1" fill="#fff"/>
+<circle cx="32" cy="38" r="2.6" fill="#fff"/>
+<path d="M8 58h48" stroke="#2F8A3A" stroke-width="3" stroke-linecap="round"/>
+</svg>

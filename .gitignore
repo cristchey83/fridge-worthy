@@ -1,0 +1,12 @@
+# Your own instance and school email never belong in this repo
+instance/
+inbox/
+*.eml
+*.mbox
+.env*
+.dev.vars
+.wrangler/
+node_modules/
+__pycache__/
+screenshots/
+.DS_Store

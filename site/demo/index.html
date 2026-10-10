@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Static demo page for a made-up school. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="A live demo of a Fridge-Worthy class page, for a made-up school: this week, coming up, the classroom, and contacts on one short page.">
+<meta name="theme-color" content="#F3F2EE">
+<title>4th Grade · Sunridge Elementary (Demo)</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="demo.css">
+<script src="demo.js" defer></script>
+</head>
+<body data-demo-today="2026-10-13">
+
+<div class="demo-bar" role="note">
+  <p>Demo page for a made-up school. Pretend it's Tue, Oct 13. <a href="../">Back to Fridge-Worthy</a></p>
+</div>
+
+<header>
+  <div class="wrap">
+    <span class="logo"><img src="logo.svg" alt="Sunridge Elementary" width="44" height="44"></span>
+    <h1>4th Grade <span>Updated Fri, Oct 9</span></h1>
+    <div class="today" id="today"><span class="sr" id="today-sr"></span><span id="today-mon" aria-hidden="true"></span><b id="today-day" aria-hidden="true"></b></div>
+  </div>
+</header>
+
+<div class="stale" id="stale" data-updated="2026-10-09" role="status"></div>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap"><a href="#week">This Week</a><a href="#coming">Coming Up</a><a href="#classroom">Classroom</a><a href="#event">Musical</a></div>
+</nav>
+
+<main>
+<section id="week" class="alt">
+<div class="wrap">
+<h2>This Week <small>Oct 12⁠–⁠16</small></h2>
+<div class="todo">
+<article class="item" data-date="2026-10-13">
+<p class="due">Due Tue, Oct 13</p>
+<h3>Field Trip Form</h3>
+<p>Sign and return the permission slip for Thursday's trip. Extra copies are in the front office.</p>
+
+<a class="more" href="#demo">Download the form <span aria-hidden="true">→</span></a>
+</article>
+<article class="item" data-date="2026-10-14">
+<p class="due">Wed, Oct 14</p>
+<h3>Late Start Wednesday</h3>
+<p>Classes start at <b>10 AM</b>. Kids can arrive at the usual time for quiet reading in the library.</p>
+
+
+</article>
+<article class="item" data-date="2026-10-15">
+<p class="due">Thu, Oct 15</p>
+<h3>Science Museum Trip</h3>
+<p>Buses leave at 8:45 AM and return by 2:30 PM. <b>Pack a lunch</b> and a water bottle; wear walking shoes.</p>
+
+
+</article>
+<article class="item" data-date="2026-10-16">
+<p class="due">Due Fri, Oct 16</p>
+<h3>Book Fair Money</h3>
+<p>The book fair is in the library all week. Send cash in an envelope with your kid's name, or skip it; it's optional. Classes shop on Friday morning.</p>
+
+
+</article>
+</div>
+<p class="empty" id="week-empty">That's everything for this week.</p>
+</div>
+</section>
+
+<section id="coming">
+<div class="wrap">
+<h2>Coming Up</h2>
+<ul class="events" id="soon">
+<li data-date="2026-10-21"><div class="date"><span>Wed</span>Oct 21</div><div>Pumpkin Patch Day<small>Whole grade walks to the garden. Dress for mud.</small></div></li>
+<li data-date="2026-10-28"><div class="date"><span>Wed</span>Oct 28</div><div>Make-Up Picture Day</div></li>
+<li data-date="2026-10-30"><div class="date"><span>Fri</span>Oct 30</div><div>Fall Festival<span class="tag">Half day</span><small>Games and crafts on the field, 9⁠–⁠11:30 AM.</small></div></li>
+</ul>
+<p class="empty" id="soon-empty">Nothing else coming up soon. Open "Later" below.</p>
+<details class="later-toggle"><summary>Later</summary>
+<ul class="events">
+<li data-date="2026-11-11"><div class="date"><span>Wed</span>Nov 11</div><div>Veterans Day<span class="tag">No school</span></div></li>
+<li data-date="2026-11-16/2026-11-20"><div class="date"><span>Mon⁠–⁠Fri</span>Nov 16⁠–⁠20</div><div>Parent Conferences<small>Sign-up link comes by email in early November.</small></div></li>
+<li data-date="2026-11-25/2026-11-27"><div class="date"><span>Wed⁠–⁠Fri</span>Nov 25⁠–⁠27</div><div>Thanksgiving Break<span class="tag">No school</span></div></li>
+<li data-date="2026-12-18"><div class="date"><span>Fri</span>Dec 18</div><div>Winter Sing-Along<span class="tag">Half day</span></div></li>
+<li data-date="2026-12-21/2027-01-01"><div class="date">Dec 21⁠–⁠Jan 1</div><div>Winter Break<span class="tag">No school</span><small>Back Mon, Jan 4</small></div></li>
+</ul>
+</details>
+</div>
+</section>
+
+<section id="classroom" class="alt">
+<div class="wrap">
+<h2>In the Classroom <small>Latest from Ms. Rivera · Oct 5⁠–⁠9</small></h2>
+<ul class="learn">
+<li><b>Math:</b> Multiplication arrays: drawing rows and columns to show facts, then splitting big arrays into smaller ones.</li>
+<li><b>Science:</b> States of matter. Melted ice, boiled water, and watched a balloon grow over warm water.</li>
+<li><b>Reading:</b> Book clubs started. Each group picked a novel and assigned roles like Word Finder and Connector.</li>
+<li><b>Writing:</b> Personal narratives: one small moment, told slowly, with a strong first line.</li>
+</ul>
+<div class="ask">
+<h3>Ask your kid about</h3>
+<ul>
+<li>Can you draw 6 × 4 as an array, then split it into two smaller ones?</li>
+<li>Why did the balloon grow over the warm water?</li>
+<li>What's your job in book club this week?</li>
+</ul>
+</div>
+<details><summary>At home</summary>
+<div class="ref">
+<p><b>Reading log:</b> 20 minutes a night, any book. Sign the log on Fridays.</p>
+<p><b>Math facts:</b> A few minutes of ×2, ×5, and ×10 practice helps. <b>Stop at 15 minutes</b> if it turns into a fight, and send Ms. Rivera a note.</p>
+<p><b>Friday folder:</b> Finished work comes home in the blue folder. Keep the work and <b>send the empty folder back</b> on Monday.</p>
+</div>
+</details>
+</div>
+</section>
+
+<section id="event" class="play">
+<div class="wrap">
+<h2>Spring Musical <small>The 4th Grade Musical · Mar 18 &amp; 19</small></h2>
+<dl>
+<dt>Shows</dt><dd>Thu, Mar 18 · 6:30 PM<br>Fri, Mar 19 · 6:30 PM</dd>
+<dt>School show</dt><dd>Fri, Mar 19 · 10 AM, students only</dd>
+<dt>Rehearsals</dt><dd>Mon &amp; Wed, 3⁠–⁠4:30 PM, starting in January. Scripts go home in December.</dd>
+<dt data-date="2026-11-06">Volunteers</dt><dd data-date="2026-11-06">Help with sets, costumes, and snacks. Sign up by Fri, Nov 6; no theater experience needed.</dd>
+<dt>Show week</dt><dd>Mon, Mar 15 dress rehearsal until 5:30 PM<br>Tue, Mar 16 tech rehearsal until 5:30 PM</dd>
+</dl>
+<a class="more" href="#demo">Volunteer sign-up <span aria-hidden="true">→</span></a>
+</div>
+</section>
+
+<section id="contacts">
+<div class="wrap">
+<h2>Contacts &amp; Info</h2>
+<details><summary>Who to ask</summary>
+<ul class="people ref">
+<li><b>Ms. Rivera</b><span>4th grade teacher · class questions</span><a href="mailto:rivera@example.org">rivera@example.org</a></li>
+<li><b>Mr. Okafor</b><span>Music · Spring Musical</span><a href="mailto:okafor@example.org">okafor@example.org</a></li>
+<li><b>Front Office</b><span>Absences, pickup changes</span><a href="mailto:office@example.org">office@example.org</a><span class="phone"><a href="tel:5550100">555-0100</a></span></li>
+<li><b>Sam &amp; Jordan</b><span>Class parents · anything else</span><span class="phone">Sam <a href="tel:5550123">555-0123</a></span><span class="phone">Jordan <a href="tel:5550147">555-0147</a></span></li>
+</ul>
+</details>
+<details><summary>Quick links</summary>
+<div class="ref links"><a href="#demo">School website</a><a href="#demo">Lunch menu</a><a href="#demo">School calendar</a></div>
+</details>
+<details><summary>Good to know</summary>
+<div class="ref">
+<p><b>Late Start Wednesdays:</b> Second Wednesday of each month. Classes start at 10 AM; the library opens at the usual time for quiet reading.</p>
+<p><b>Pickup:</b> 3 PM every day, 12:30 PM on half days. Pickup changes go to the front office by noon.</p>
+<p><b>Label everything:</b> Jackets, water bottles, and lunch boxes, with first and last name. Lost and found is by the gym.</p>
+</div>
+</details>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+<p><b>How this page works:</b> every Friday a parent updates it from the school newsletter and teacher emails, keeping only what matters for 4th grade.</p>
+<p>This is a demo. Sunridge Elementary, its staff, and its families are made up.</p>
+<p><a class="more" href="../">Make one for your class with Fridge-Worthy <span aria-hidden="true">→</span></a></p>
+  </div>
+</footer>
+
+<div class="toast" id="demo-toast" role="status" aria-live="polite"></div>
+</body>
+</html>

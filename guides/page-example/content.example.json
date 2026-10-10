@@ -1,0 +1,58 @@
+{
+  "_comment": "Fictional sample. Keys starting with _ are comments and are ignored.",
+  "title": "Sunridge Elementary",
+  "timezone": "America/Los_Angeles",
+  "updated": "2026-10-09",
+  "shared": false,
+  "week": { "start": "2026-10-12", "end": "2026-10-16" },
+  "grades": [
+    { "id": "g4", "label": "4th Grade" },
+    { "id": "g2", "label": "2nd Grade" }
+  ],
+  "this_week": [
+    {
+      "id": "g4-field-trip-form-2026-10-13",
+      "grade": "g4",
+      "date": "2026-10-13",
+      "title": "Field trip form",
+      "body": "Sign and return the science center permission slip.",
+      "due": true,
+      "link": { "text": "Open the form", "url": "https://forms.example.org/field-trip" },
+      "source": "Ms. Rivera post, Oct 8"
+    },
+    {
+      "grade": "all",
+      "dates": ["2026-10-13", "2026-10-15"],
+      "title": "Book fair",
+      "label": "Tue and Thu",
+      "body": "Send a labeled envelope if your child is shopping.",
+      "source": "Weekly newsletter, Oct 9"
+    }
+  ],
+  "coming_up": {
+    "events": [
+      { "grade": "all", "date": "2026-10-23", "title": "No school", "tag": "No school", "source": "School calendar" },
+      { "grade": "g4", "date": "2026-10-28", "end": "2026-10-30", "title": "State testing", "note": "Arrive by 8:15 AM.", "source": "Weekly newsletter, Oct 9" }
+    ],
+    "later_from": "2026-11-09"
+  },
+  "classroom": [
+    {
+      "grade": "g4",
+      "from": "Ms. Rivera",
+      "dates": "Oct 8",
+      "subjects": [
+        { "name": "Math", "text": "Multiplying two-digit numbers. Quiz Friday." },
+        { "name": "Science", "text": "Planning the science center trip." }
+      ],
+      "ask": ["What did you build in science?", "Which multiplication trick do you like?"]
+    }
+  ],
+  "contacts": [
+    { "name": "Front office", "email": "office@example.org", "phones": [{ "number": "555-0100", "consent": "public" }] },
+    { "name": "Ms. Rivera", "role": "4th Grade teacher", "email": "rivera@example.org" }
+  ],
+  "links": [{ "text": "School calendar", "url": "https://www.example.org/calendar" }],
+  "good_to_know": [{ "title": "Pickup", "text": "Pickup starts at 3:05 PM at the north gate." }],
+  "footer": ["Unofficial parent page. Not affiliated with the school. The school's own messages are the final word."]
+}
