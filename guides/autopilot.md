@@ -39,7 +39,8 @@ scheduled job (twice a day, or on new mail)
    7. change email to you, with one-step undo
    │
    ▼
-alerts: job failed, nothing new in 8 days, held items waiting
+alerts: job failed, no successful run in 48 hours, held items waiting
+(readers also see the page's stale banner after 8 days without an update)
 ```
 
 The model never writes HTML and never touches the page. It only proposes small, structured edits. Code decides whether they are allowed.
@@ -121,7 +122,7 @@ Your agent implements each one **and a test that proves it**. Any failed check b
 11. **Kill switch.** One setting (`AUTOPILOT_ENABLED=false` as a repo variable) stops every run before it reads mail. Every change email has a "Pause Autopilot" link that sets it (through the same confirmation page).
 12. **Spend cap.** A monthly cap in the provider's console, plus caps in code: messages per run, characters per message, runs per day.
 13. **Fail loudly.** Job failure emails you. A separate daily check alerts you if there's been no successful run in 48 hours. The page's stale banner (from the Page setup) appears after 8 days without an update, so readers see it too.
-14. **Retention and cleanup.** Raw mail deleted after 14 days by lifecycle rule. Never committed, never printed to logs, never in CI artifacts. Keep only the hash index and the short quotes in `content.json`. Delete old Pages deployments after each publish (the Page setup's prune script).
+14. **Retention and cleanup.** Raw mail deleted after 14 days by lifecycle rule. Never committed, never printed to logs, never in CI artifacts. Keep only the hash index and the short quotes in `content.json`. Delete old Pages deployments after each publish, as in the Page setup's weekly step 9 (list deployments, delete all but the current production one through the Cloudflare API).
 15. **Least-privilege secrets.** Each credential does one job:
     - A Pages-only Cloudflare deploy token with an expiry.
     - A model API key with the spend cap.

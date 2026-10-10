@@ -47,7 +47,7 @@ We recommend:
 
 A scheduled job reads forwarded school email and updates your page on its own. By default there is no approval step (`require_approval: false`): email flows in and the page updates itself, with a plain-text change email and one-tap undo after each publish. Risky items always wait for your tap. Turning approval on (`require_approval: true`) is the safer choice, recommended when the page is shared with a class. If the setting is missing or unreadable, it counts as the default, and held items still wait. See [guides/autopilot.md](guides/autopilot.md) for the full checklist.
 
-The guide recommends these minimum guardrails:
+In short, the guide's 16 required guardrails (each with a test) cover:
 1. **Email is data, never instructions.** The model has no shell or deploy tools. It only proposes structured edits (JSON), never HTML.
 2. **Only allowlisted senders** that pass DKIM/DMARC, sent to a random forwarding address. On shared sending platforms, also pin the exact From address and a school identifier (List-Id or sender id). No inbox login or OAuth access.
 3. **Every item quotes its source word for word.** Code checks quotes, dates, and weekdays; any failure blocks the update.
@@ -59,7 +59,7 @@ The guide recommends these minimum guardrails:
 9. **Raw email kept 14 days at most**, never in git, CI artifacts, or logs.
 10. **A name blocklist runs before the model call and again at build.** Messages not sent to all families are dropped.
 11. **Delete old deployments after each publish**, and keep a written leak plan.
-12. **Fail loudly:** a "not updated" banner after 8 days, and an alert when the job fails.
+12. **Fail loudly:** an alert when the job fails or hasn't succeeded in 48 hours, and a "not updated" banner after 8 days.
 13. **Links in emails never act on their own.** Approve, Undo, and Pause links open a confirmation page; only its button acts, so email link scanners can't trigger them. Change emails are plain text.
 14. **Change email, undo, kill switch, and spend cap.** A plain-text change email after every publish with a confirm-page undo, a one-setting kill switch, and a monthly spend cap.
 
