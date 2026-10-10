@@ -110,7 +110,7 @@ Dates are `YYYY-MM-DD`. Keep the file formatted with 2-space indents and keep th
 
 A few fields in more detail:
 
-- **`source`** is never shown on the page. It records where each item came from, so the change list can say so. It is text, or `{ "message_id": ..., "quote": ... }` with both filled (used by [Autopilot](autopilot.md)).
+- **`source`** is never shown on the page. It records where each item came from, so the change list can say so. It is text, or `{ "message_id": ..., "quote": ... }` with both filled, plus an optional `date` (the message's date, ISO 8601). The object form is used by [Autopilot](autopilot.md).
 - **`link`** needs both `text` and `url`.
 - **`end`** must be after `date`. A one-day item uses `date` alone; `end` on the same day is an error.
 - **`label`** replaces the card's date text, e.g. `"All week"` or `"By Friday"`. The real dates still drive "Today" and hiding.

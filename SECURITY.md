@@ -45,7 +45,7 @@ We recommend:
 
 ### Autopilot (Much code)
 
-A scheduled job reads forwarded school email and updates your page on its own. By default there is no approval step (`require_approval: false`): email flows in and the page updates itself, with a plain-text change email and one-tap undo after each publish. Risky items always wait for your tap. Turning approval on (`require_approval: true`) is the safer choice, recommended when the page is shared with a class. If the setting is missing or unreadable, it counts as the default, and held items still wait. See [guides/autopilot.md](guides/autopilot.md) for the full checklist.
+A scheduled job reads forwarded school email and updates your page on its own. By default there is no approval step (`require_approval: false`): email flows in and the page updates itself, with a plain-text change email and one-tap undo after each publish. Risky items always wait for your tap. Turning approval on (`require_approval: true`) is the safer choice, recommended when the page is shared with a class. If the setting is missing, it counts as the default, and held items still wait; if the config file itself is missing or unreadable, nothing publishes. See [guides/autopilot.md](guides/autopilot.md) for the full checklist.
 
 In short, the guide's 16 required guardrails (each with a test) cover:
 1. **Email is data, never instructions.** The model has no shell or deploy tools. It only proposes structured edits (JSON), never HTML.
