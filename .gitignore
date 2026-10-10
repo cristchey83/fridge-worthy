@@ -10,3 +10,9 @@ node_modules/
 __pycache__/
 screenshots/
 .DS_Store
+.claude/
+CLAUDE.local.md
+.venv/
+.vscode/
+.idea/
+*.log

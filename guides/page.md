@@ -2,7 +2,7 @@
 
 **Guide v0.1.** Turn your week of school email into a small, password-protected web page your family checks on their phones. Optionally, share it with your class.
 
-There is no starter code yet. Your coding agent builds the page from this guide. Open an empty folder in Claude Code, Cursor, or Codex and say: *"Read page.md and build this with me. Stop at every checkpoint."*
+There is no starter code yet. Your coding agent builds the page from this guide. Make a new empty folder outside your copy of this repo, copy `page.md` and `page-example/` into it, open it in Claude Code, Cursor, or Codex, and say: *"Read page.md and build this with me. Stop at every checkpoint."*
 
 The filtering rules (the one rule, keep and drop, source rules, privacy) are the same as the [Chat setup](chat.md). This guide adds a page around them.
 
@@ -21,6 +21,7 @@ The filtering rules (the one rule, keep and drop, source rules, privacy) are the
 ## Prerequisites
 
 - A coding agent (Claude Code, Cursor, Codex, or similar).
+- A GitHub account and git.
 - A free Cloudflare account. No paid plan needed.
 - Python 3.9+ and Node.js 22.6 or newer.
 - About an hour for setup. About 10 minutes a week after that.
@@ -54,7 +55,7 @@ template.html ──┘ the template)
 | `public/` | The only folder that gets published: `index.html`, `404.html`, `robots.txt`, `_headers`. |
 | `public/404.html` | A simple "Page not found" with a link home. Gated like every other page, so it names nothing. |
 | `tests/` | pytest for the build; a Node test for the gate (`node --test`). |
-| `.gitignore` | Ignores `node_modules/`, `.wrangler/`, `.env*`, `.dev.vars`, and any `inbox/` or `*.eml`. |
+| `.gitignore` | Ignores `node_modules/`, `.venv/`, `.wrangler/`, `.env*`, `.dev.vars`, and any `inbox/` or `*.eml`. |
 | `package.json` | Sets `"type": "module"` (so the gate test can import the middleware) and pins the wrangler version. |
 
 **Kept outside the repo:** the private-names blocklist (see below) and your Cloudflare API token.
@@ -174,13 +175,14 @@ A small inline script in `template.html`, no libraries:
 Your agent works through these in order. At each **Checkpoint**, it shows you the result and waits.
 
 ### 1. Make your private copy
-- Make a **new private repo** on GitHub. Once Fridge-Worthy has a template repo: **Use this template → Private**. Never fork the public repo: forks of a public repo are always public.
+- Make a **new private repo** on GitHub for the folder you started in. Never fork the public Fridge-Worthy repo: forks of a public repo are always public.
 - **Checkpoint:** the repo shows "Private".
 
 ### 2. Install tools
 ```sh
 python3 --version && node --version   # Node 22.6 or newer
 npm init -y && npm pkg set type=module && npm install --save-exact wrangler
+python3 -m venv .venv && . .venv/bin/activate   # avoids pip errors on Macs
 python3 -m pip install pytest
 ```
 - **Checkpoint:** all commands work.

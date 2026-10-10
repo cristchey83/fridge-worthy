@@ -182,11 +182,11 @@ Turn Autopilot on only after all 18 pass. For extra confidence, run two weeks wi
 
 ## Hand this to your agent
 
-Paste into Claude Code, Cursor, or similar, from inside your Page repo:
+Copy `autopilot.md` into your Page repo (it already has `page.md`), then paste this into Claude Code, Cursor, or similar from inside that repo:
 
 ```
-Build Autopilot for my class page. Read guides/autopilot.md (this design) and
-guides/page.md (the Page setup it builds on) in full first.
+Build Autopilot for my class page. Read autopilot.md (this design) and
+page.md (the Page setup it builds on) in full first.
 
 Rules while building:
 - Use only synthetic fixtures. Never ask me to paste real school email.

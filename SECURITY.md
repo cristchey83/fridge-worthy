@@ -34,7 +34,7 @@ Your coding agent builds a password-protected page and updates it when you run i
 Main risks: class data in a public repo; a password or token leaking; old versions staying online; a group-chat link preview revealing the school; pasted email steering your agent.
 
 We recommend:
-- **Make a private repo from the template.** Use "Use this template" and choose Private. Never fork: forks of a public repo are always public.
+- **Build in a new private repo.** Never fork this one: forks of a public repo are always public.
 - **Type the page password only into Cloudflare** (as a secret). Use at least four random words. Never put it in the repo, a chat, or your agent's prompt.
 - **Use a deploy token scoped to Pages only, with an expiry date.** Store it in a secret store or local file outside the repo.
 - **Deploy with `--branch main`** so the update goes to your production URL, not a stray preview URL.
@@ -92,7 +92,7 @@ Yes. It's a speed bump, not real authentication. Put nothing on the page that wo
 The guides recommend a long passphrase (at least four random words) and a basic rate limit on the login. For stronger protection, put the page behind Cloudflare Access.
 
 **What if my copy of the repo is public?**
-Then your class data is public. Create your copy with "Use this template" and choose Private; never fork. Keep per-class data and raw email out of anything you commit.
+Then your class data is public. Build your page in a new private repo; never fork this one. Keep per-class data and raw email out of anything you commit.
 
 **Are old versions of my page still online?**
 On Cloudflare Pages, yes: each deployment keeps its own URL until you delete it. Old production deployments keep the password they were deployed with, so the old password still opens them. The guides recommend deleting old deployments after every update. After a leak: fix the content, change the secrets, deploy, and delete every other deployment as the last step.

@@ -25,10 +25,12 @@ Read [SECURITY.md](SECURITY.md) before you build a Page or Autopilot.
 
 ## About this repo
 
-Shared as a reference. Not accepting contributions or support requests. Fork it and make it yours.
+Shared as a reference. Not accepting contributions or support requests. Clone it, copy it, make it yours.
 
-Never paste real school email, kids' names, or passwords into a fork, issue, or pull request.
+To build your own Page, start a new **private** repo (see [guides/page.md](guides/page.md)). Don't fork this one: forks of a public repo are always public. Never commit real school email, kids' names, or passwords.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The fonts in `site/fonts/` (Inter, Caveat, Playfair Display) are under the SIL Open Font License; see the `OFL-*.txt` files there.
+
+To check the site before a deploy: `python3 scripts/check_site.py` (needs Playwright; add `--no-browser` to skip the browser checks).
