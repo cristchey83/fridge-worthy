@@ -2,14 +2,14 @@
 
 **Guide v0.1.** Turn your week of school email into a small, password-protected web page your family checks on their phones. Optionally, share it with your class.
 
-There is no starter code yet. Your coding agent builds the page from this guide. Make a new empty folder outside your copy of this repo, copy `page.md` and `page-example/` into it, open it in Claude Code, Cursor, or Codex, and say: *"Read page.md and build this with me. Stop at every checkpoint."*
+There is no starter code yet. Your coding agent builds the page from this guide. Make a new empty folder outside your copy of this repo, copy `page.md`, `chat.md`, and `page-example/` into it, open it in Claude Code, Cursor, or Codex, and say: *"Read page.md and build this with me. Stop at every checkpoint."*
 
 The filtering rules (the one rule, keep and drop, source rules, privacy) are the same as the [Chat setup](chat.md). This guide adds a page around them.
 
 ## What you get
 
 - One web page, built for phones, with four sections:
-  - **This Week:** the few things to do, bring, wear, or sign, in the coming Monday to Friday.
+  - **This Week:** the few things to do, bring, wear, or sign, in the current Monday to Friday (on a weekend, the coming one).
   - **Coming Up:** the next few weeks. No-school days, half days, and events you plan around.
   - **In the Classroom:** a short summary of the teacher's posts, plus two "Ask your kid" questions.
   - **Contacts & Info:** who to ask, quick links, good-to-know facts.
@@ -23,7 +23,7 @@ The filtering rules (the one rule, keep and drop, source rules, privacy) are the
 - A coding agent (Claude Code, Cursor, Codex, or similar).
 - A GitHub account and git.
 - A free Cloudflare account. No paid plan needed.
-- Python 3.9+ and Node.js 22.6 or newer.
+- Python 3.9+ and Node.js 22.18 or newer (24 LTS recommended).
 - About an hour for setup. About 10 minutes a week after that.
 
 ## Ground rules for the agent
@@ -146,7 +146,7 @@ The build stops and lists every problem in plain English if any of these fail. A
 - **Fonts are optional.** System fonts are fine. If you self-host a font, its file is a public path, so it must not identify the school.
 - **Fail closed:** on every request, including public paths and the login form, check that `SITE_PASSWORD` and `SITE_SECRET` are set. If either is missing, return a plain 500 "Server misconfigured" page. Never serve content.
 - **Login form:** posts (`method="post"`) to the same path it was shown on. On the right password, set the cookie and answer `303` with `Location: /`. The redirect always stays on the same site: never take its target from the query string or the form.
-- **Password check:** trim and lowercase what the parent typed (easy on phones), then compare with a **constant-time** compare.
+- **Password check:** trim and lowercase both what the parent typed and the stored password (easy on phones), then compare with a **constant-time** compare.
 - **Cookie:** `__Host-fw_auth=<payload>.<HMAC-SHA256 signature>; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=` 30 to 90 days. The payload holds the expiry, checked on every request. Sign with `SITE_SECRET` plus the password, so changing either logs everyone out.
   - **Lax, not Strict:** with Strict, a link tapped in an email or text lands on the login page every time.
   - `__Host-` means the browser rejects the cookie unless it is Secure, has no Domain, and has `Path=/`.
@@ -180,17 +180,17 @@ Your agent works through these in order. At each **Checkpoint**, it shows you th
 
 ### 2. Install tools
 ```sh
-python3 --version && node --version   # Node 22.6 or newer
+python3 --version && node --version   # Node 22.18 or newer
 npm init -y && npm pkg set type=module && npm install --save-exact wrangler
 python3 -m venv .venv && . .venv/bin/activate   # avoids pip errors on Macs
-python3 -m pip install pytest
+.venv/bin/python -m pip install pytest
 ```
 - **Checkpoint:** all commands work.
 
 ### 3. Build it
-- The agent writes `content.json` (fictional sample first, with a fixed copy in `tests/fixtures/`), `template.html`, `build.py`, `functions/_middleware.ts`, `public/robots.txt`, `public/_headers`, `public/404.html`, `.gitignore`, and `tests/`, following the acceptance criteria above.
+- The agent writes `content.json` (fictional sample first, with a fixed copy in `tests/fixtures/`), `template.html`, `build.py`, `functions/_middleware.ts`, `public/robots.txt`, `public/_headers`, `public/404.html`, `.gitignore`, and `tests/`, following the acceptance criteria above. Start `content.json` from `page-example/content.example.json`.
 - Create the blocklist outside the repo: `mkdir -p ~/.fridge-worthy && touch ~/.fridge-worthy/private-names.txt`. You add names to it yourself (your kids, their classmates). The agent doesn't need to see it.
-- **Checkpoint:** `python3 build.py && python3 -m pytest && node --test` pass. You've seen a deliberately broken `content.json` fail with a clear message. `public/404.html` exists.
+- **Checkpoint:** `python3 build.py && .venv/bin/python -m pytest && node --test` pass. You've seen a deliberately broken `content.json` fail with a clear message. `public/404.html` exists.
 
 ### 4. Make it look like your school (optional)
 - The agent asks for your school colors. It uses a logo only if the school has said that's OK.
@@ -212,7 +212,7 @@ npx wrangler pages dev public --port <free port> \
 2. You create an API token: My Profile → API Tokens → Create Token → Custom. Permission: **Account · Cloudflare Pages · Edit** only. Set an **expiry** (e.g. end of the school year).
 3. You save it to a file outside the repo, readable only by you, e.g. `~/.fridge-worthy/cf-token` (`chmod 600`). Don't paste it into chat.
 4. The agent uses it as `CLOUDFLARE_API_TOKEN=$(cat ~/.fridge-worthy/cf-token)` plus `CLOUDFLARE_ACCOUNT_ID=<yours>` in the command, never in a committed file.
-- **Checkpoint:** `npx wrangler whoami` shows your account and no one else's.
+- **Checkpoint:** `npx wrangler whoami`, run with both variables, shows your account and no one else's.
 
 ### 7. Create the project
 - Pick a **neutral project name**. It becomes `https://<name>.pages.dev`. Avoid the school, town, or grade; use something like `fridge-k7q2`.
@@ -224,7 +224,8 @@ npx wrangler pages project create <name> --production-branch main
 ### 8. Set the secrets
 - **`SITE_PASSWORD` (you do this).** In your own terminal window:
   ```sh
-  npx wrangler pages secret put SITE_PASSWORD --project-name <name>
+  CLOUDFLARE_API_TOKEN=$(cat ~/.fridge-worthy/cf-token) CLOUDFLARE_ACCOUNT_ID=<yours> \
+    npx wrangler pages secret put SITE_PASSWORD --project-name <name>
   ```
   Type it at the prompt. Use **at least four random words** (e.g. `lantern-pebble-orbit-meadow`). Not the teacher, mascot, grade, or year.
 - **`SITE_SECRET` (the agent does this),** without ever printing it:
@@ -237,7 +238,7 @@ npx wrangler pages project create <name> --production-branch main
 ### 9. First deploy
 - The agent shows you what will go live. **You say OK.**
 ```sh
-python3 build.py && python3 -m pytest && node --test
+python3 build.py && .venv/bin/python -m pytest && node --test
 npx wrangler pages deploy public --project-name <name> --branch main
 ```
 - **Always `--branch main`.** Without it, Cloudflare makes a preview deployment with no secrets and its own address.
@@ -262,10 +263,10 @@ npx wrangler pages deploy public --project-name <name> --branch main
 2. **Edit.** The agent edits `content.json` only, using the one rule and the source rules from [chat.md](chat.md):
    - Keep an item only if a parent would change their schedule, prepare their child, or do something.
    - Newer and more specific wins. Never invent or "fix" a date. Only links that appear exactly in a message.
-   - Set `updated` to today. Set `week` to the coming Monday to Friday (on a Monday, that's this week). Keep items dated today; drop items before today.
-   - **Weekday and date don't match** (e.g. "Fri, Oct 15" when Oct 15 is a Thursday): leave the item off the page, list it under Flags, and ask the parent. Same "flag, don't fix" rule as Chat.
+   - Set `updated` to today. Set `week` to the Monday to Friday containing today (on a weekend, the coming one). Keep items dated today; drop items before today.
+   - **Weekday and date don't match** (e.g. "Fri, Oct 15" when Oct 15 is a Thursday): leave the item off the page, list it under Flags, and ask the parent. (Chat keeps the item and flags it; a page others read leaves it off until you check.)
    - Fill `source` on every item. Keep the 2-space format and key order.
-3. **Build and test.** `python3 build.py && python3 -m pytest && node --test`. Fix every error. Read every warning.
+3. **Build and test.** `python3 build.py && .venv/bin/python -m pytest && node --test`. Fix every error. Read every warning.
 4. **Change list.** The agent shows:
    - Added, changed, removed (with source).
    - Which source won any conflict, and why.

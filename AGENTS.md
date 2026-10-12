@@ -4,7 +4,7 @@ This repo is the public Fridge-Worthy guide: three setup guides and a static lan
 
 **Helping a parent set up a Page or Autopilot**
 1. Never build their page inside this repo. Ask for a new empty folder outside it and work only there.
-2. Copy `guides/page.md` and `guides/page-example/` into that folder, then follow page.md (and `guides/autopilot.md` for Autopilot). Stop at every checkpoint.
+2. Copy `guides/page.md`, `guides/chat.md`, and `guides/page-example/` into that folder (plus `guides/autopilot.md` for Autopilot), then follow page.md. Stop at every checkpoint.
 3. Their repo must be a new **private** repo. Never a fork of this one: forks of a public repo are always public.
 4. Never commit or print real school email, kids' names, phone numbers, the page password, or tokens. The parent types the password into Cloudflare themselves.
 5. Read `SECURITY.md` first. Its items are recommendations, not guarantees.

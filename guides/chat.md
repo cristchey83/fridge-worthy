@@ -7,7 +7,7 @@ Paste your week of school email into Claude or ChatGPT. Get back the few updates
 ## Before you start: privacy settings
 
 - **Turn off model training.** ChatGPT: Settings → Data Controls → "Improve the model for everyone" off. Claude: Settings → Privacy → model training off.
-- **Turn off memory** (ChatGPT: Settings → Personalization → Memory), or it may remember details about your kids.
+- **Turn off memory** in ChatGPT (Settings → Personalization: saved memories and chat history) and in Claude (Settings), or it may remember details about your kids.
 - **Never use "Share chat."** A shared link exposes every email you pasted.
 - **Remove kids' names before pasting.** Use grades, not names. Delete any health or behavior details too.
 - **Paste only messages sent to all families.** Skip notes about your own child (nurse, discipline, learning plans).
@@ -32,7 +32,7 @@ Then paste this week's emails and say: *"This is my first week. Use the older me
 ## Each week
 
 1. Open the project and start a new chat.
-2. Paste **last week's summary** first (so Coming Up carries over), then this week's emails, newsletters, and app digests. Plain text is fine; forward-to-self and copy-all works.
+2. Paste **last week's summary** first, starting with "LAST WEEK'S SUMMARY:" (so Coming Up carries over), then this week's emails, newsletters, and app digests. Plain text is fine; forward-to-self and copy-all works.
 3. Read the summary. Check anything marked **Include?**
 4. Put what matters on your fridge or calendar. If you share it with your class, check every date and link against the school's message first.
 

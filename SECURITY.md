@@ -47,7 +47,7 @@ We recommend:
 
 A scheduled job reads forwarded school email and updates your page on its own. By default there is no approval step (`require_approval: false`): email flows in and the page updates itself, with a plain-text change email and one-tap undo after each publish. Risky items always wait for your tap. Turning approval on (`require_approval: true`) is the safer choice, recommended when the page is shared with a class. If the setting is missing, it counts as the default, and held items still wait; if the config file itself is missing or unreadable, nothing publishes. See [guides/autopilot.md](guides/autopilot.md) for the full checklist.
 
-In short, the guide's 16 required guardrails (each with a test) cover:
+In short, the guide's required guardrails cover:
 1. **Email is data, never instructions.** The model has no shell or deploy tools. It only proposes structured edits (JSON), never HTML.
 2. **Only allowlisted senders** that pass DKIM/DMARC, sent to a random forwarding address. On shared sending platforms, also pin the exact From address and a school identifier (List-Id or sender id). No inbox login or OAuth access.
 3. **Every item quotes its source word for word.** Code checks quotes, dates, and weekdays; any failure blocks the update.

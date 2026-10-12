@@ -5,7 +5,7 @@
 
 School email goes to a secret forwarding address. A scheduled job reads it, decides what changed, checks its own work in code, and updates your page. By default there is no approval step: after each update you get a plain-text email listing every change, with one link to undo it. A few risky items (new link domains, phone numbers, email addresses, payment instructions, weekday mismatches, over-cap runs) always wait for your one tap. If your page is shared with a class, the safer choice is to turn on `require_approval`, so every update waits for your Approve.
 
-**Builds on:** the Page setup (`guides/page.md`): `content.json` → `build.py` → a password-gated page on Cloudflare Pages. Build that first and run it by hand for a few weeks. Autopilot replaces only the "you paste emails into your agent" step.
+**Builds on:** the Page setup (`page.md`): `content.json` → `build.py` → a password-gated page on Cloudflare Pages. Build that first and run it by hand for a few weeks. Autopilot replaces only the "you paste emails into your agent" step.
 
 **Time:** an afternoon to a weekend to build and test. Then a glance at the change email a few times a week.
 
@@ -98,6 +98,7 @@ These settle the details the guardrails depend on. Build them as written unless 
 - **State:** raw mail in R2 (14 days). The processed-message hash index, pending changes, held items, and used link tokens in KV (or a small table). Every publish commits `content.json` with the run id in the commit message.
 - **Undo** restores the `content.json` from before that update and redeploys. If a later update has published since, the undo page says so and does nothing; undo the later one first.
 - **Alerts run outside the job:** the daily "no successful run in 48 hours" check runs as a Worker cron, not in GitHub Actions, so it still fires when Actions is down.
+- **Name blocklist in CI:** the build runs in GitHub Actions, where `~/.fridge-worthy/private-names.txt` doesn't exist. Store the list as a secret, write it to a temp file in the publish job, and point `FW_PRIVATE_NAMES` at it.
 
 ## Pick your parts
 
@@ -202,13 +203,14 @@ Turn Autopilot on only after all 18 pass. For extra confidence, run two weeks wi
 Copy `autopilot.md` into your Page repo (it already has `page.md`), then paste this into Claude Code, Cursor, or similar from inside that repo:
 
 ```
-Build Autopilot for my class page. Read autopilot.md (this design) and
+Build Autopilot for my page. Read autopilot.md (this design) and
 page.md (the Page setup it builds on) in full first.
 
 Rules while building:
 - Use only synthetic fixtures. Never ask me to paste real school email.
 - Never put secrets in files, logs, or chat. Ask me to add them to the secret store.
-- Ship require_approval false (the default). Never change it yourself; I decide.
+- Ship require_approval false (the default). Never change it yourself (except for the
+  checkpoint 6 dry run); I decide.
   If the key is missing, treat it as false, but held items still wait for my
   tap. If config.json is missing or unreadable, fail the run. Follow Run rules.
 
@@ -225,7 +227,8 @@ results, and wait for my OK:
    Tests 1, 2, 4, 5, 6, 8, 9, 10, 11, 17.
 5. Publish path: build, tests, deploy with a Pages-only token from a GitHub
    Environment, verify, prune, plain-text change email, confirmation pages
-   for every link, undo, kill switch, alerts. Tests 12, 13, 14, 15, 16.
+   for every link, undo, kill switch, alerts, and guardrail 1 (deploy refuses a shared page without login or
+   accept_unreviewed_class_publish). Tests 12, 13, 14, 15, 16.
 6. Dry run: one week with the live model and require_approval true. Report what it got
    wrong.
 Tell me plainly if any guardrail can't be built as written.

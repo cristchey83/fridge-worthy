@@ -18,7 +18,7 @@
       "body": "Sign and return the science center permission slip.",
       "due": true,
       "link": { "text": "Open the form", "url": "https://forms.example.org/field-trip" },
-      "source": "Ms. Rivera post, Oct 8"
+      "source": { "message_id": "<rivera-1008@example.org>", "date": "2026-10-08T15:20:00-07:00", "quote": "Permission slips for the science center trip are due Tuesday." }
     },
     {
       "grade": "all",
