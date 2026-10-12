@@ -12,7 +12,7 @@ Site and live demo: https://fridge-worthy.pages.dev
 |---|---|---|
 | Chat | No code | [guides/chat.md](guides/chat.md): paste a week of email into Claude or ChatGPT with one prompt |
 | Page | Some code | [guides/page.md](guides/page.md): your coding agent builds a small password-protected page for your family or class |
-| Autopilot | Much code | [guides/autopilot.md](guides/autopilot.md): a blueprint for a page that updates itself |
+| Autopilot | Much code (experimental) | [guides/autopilot.md](guides/autopilot.md): a blueprint for a page that updates itself |
 
 Read [SECURITY.md](SECURITY.md) before you build a Page or Autopilot.
 
