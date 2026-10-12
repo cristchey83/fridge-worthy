@@ -255,7 +255,7 @@ details, .row, .board { box-shadow: var(--shadow); }
 .go-wrap { display: flex; flex-direction: column; align-items: center; gap: var(--sp-1); }
 .lead { font-family: var(--serif); font-size: clamp(1.35rem, 5.4vw, 1.75rem); line-height: 1.3; margin-bottom: var(--sp-5); }
 /* Phones: before and after side by side (saves a full phone height), the rule below them */
-@media (max-width: 760px) {
+@media (min-width: 601px) and (max-width: 760px) {
   .ba { grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: "before after" "rule rule"; column-gap: var(--sp-3); row-gap: 0; align-items: start; }
   .ba > .ba-side:first-child { grid-area: before; }
   .ba > .ba-side:last-child { grid-area: after; }
@@ -267,7 +267,7 @@ details, .row, .board { box-shadow: var(--shadow); }
   .get-points li { font-size: var(--fs-sm); }
   .taped { padding: var(--sp-2); }
 }
-@media (max-width: 600px) { .board .d { min-height: 0; } }
+@media (max-width: 600px) { .board .d { min-height: 0; } .ba-phone { width: min(300px, 80vw); } }
 /* Gaps next to the dark share band match the gap between sections. */
 #paths { padding-bottom: calc(var(--section) * 2); }
 #more { padding-top: calc(var(--section) * 2); }
