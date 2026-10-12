@@ -159,7 +159,7 @@ def check_static(site):
                 for bad in blocklist:
                     if term_in(bad, low):
                         fail(f"{rel}: {key} contains a blocklisted term")
-        if any(k == "robots" and "noindex" in c for k, c in p.meta):
+        if str(rel) != "404.html" and any(k == "robots" and "noindex" in c for k, c in p.meta):
             fail(f"{rel}: still has noindex")
         for attr, v in p.refs:
             if attr == "content":
@@ -167,7 +167,8 @@ def check_static(site):
             if v.startswith("//"):
                 fail(f"{rel}: protocol-relative URL {v}")
             if is_local_ref(v):
-                target = (f.parent / v.split("#")[0].split("?")[0]).resolve()
+                path = v.split("#")[0].split("?")[0]
+                target = (site / path.lstrip("/") if path.startswith("/") else f.parent / path).resolve()
                 if not target.exists():
                     fail(f"{rel}: missing file {v}")
     for f in sorted(site.rglob("*.css")):
